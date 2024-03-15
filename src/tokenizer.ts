@@ -1,7 +1,5 @@
-import Tokenizer, {
-  type TokenizerOptions,
-} from "@streamparser/json/tokenizer.js";
-import type { ParsedTokenInfo } from "@streamparser/json/utils/types/parsedTokenInfo.js";
+import { Tokenizer, type TokenizerOptions } from "./core";
+import type { ParsedTokenInfo } from "./types";
 
 class TokenizerTransformer
   extends Tokenizer
@@ -38,7 +36,7 @@ export default class TokenizerTransformStream extends TransformStream<
   constructor(
     opts?: TokenizerOptions,
     writableStrategy?: QueuingStrategy,
-    readableStrategy?: QueuingStrategy,
+    readableStrategy?: QueuingStrategy
   ) {
     const transformer = new TokenizerTransformer(opts);
     super(transformer, writableStrategy, readableStrategy);

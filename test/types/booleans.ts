@@ -1,5 +1,5 @@
-import { runJSONParserTest } from "../utils/testRunner.js";
-import JSONParser from "../../src/jsonparser.js";
+import JSONParser from "../../src/jsonparser";
+import { runJSONParserTest } from "../utils/testRunner";
 
 describe("boolean", () => {
   const values = ["true", "false"];
@@ -17,7 +17,7 @@ describe("boolean", () => {
         (stringValue as string).split(""),
         ({ value }) => {
           expect(value).toEqual(JSON.parse(stringValue));
-        },
+        }
       );
     });
   });

@@ -1,5 +1,5 @@
-import { runJSONParserTest } from "../utils/testRunner.js";
-import JSONParser from "../../src/jsonparser.js";
+import JSONParser from "../../src/jsonparser";
+import { runJSONParserTest } from "../utils/testRunner";
 
 describe("number", () => {
   const values = [
@@ -61,7 +61,7 @@ describe("number", () => {
           [stringValue],
           ({ value }) => {
             expect(value).toEqual(JSON.parse(stringValue));
-          },
+          }
         );
       });
 
@@ -71,7 +71,7 @@ describe("number", () => {
           (stringValue as string).split(""),
           ({ value }) => {
             expect(value).toEqual(JSON.parse(stringValue));
-          },
+          }
         );
       });
     });

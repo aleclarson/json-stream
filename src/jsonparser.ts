@@ -1,6 +1,6 @@
-import { JSONParser, type JSONParserOptions } from "@streamparser/json";
-import type { ParsedElementInfo } from "@streamparser/json/utils/types/parsedElementInfo.js";
-import { cloneParsedElementInfo } from "./utils.js";
+import { JSONParser, type JSONParserOptions } from "./core";
+import type { ParsedElementInfo } from "./types";
+import { cloneParsedElementInfo } from "./utils";
 
 class JSONParserTransformer
   extends JSONParser
@@ -37,7 +37,7 @@ export default class JSONParserTransformStream extends TransformStream<
   constructor(
     opts?: JSONParserOptions,
     writableStrategy?: QueuingStrategy,
-    readableStrategy?: QueuingStrategy,
+    readableStrategy?: QueuingStrategy
   ) {
     const transformer = new JSONParserTransformer(opts);
     super(transformer, writableStrategy, readableStrategy);

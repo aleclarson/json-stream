@@ -1,11 +1,11 @@
+import TokenType from "../src/core/utils/types/tokenType";
+import JSONParser from "../src/jsonparser";
+import TokenParser from "../src/tokenparser";
 import {
   runJSONParserTest,
   runTokenParserTest,
   TestData,
-} from "./utils/testRunner.js";
-import JSONParser from "../src/jsonparser.js";
-import TokenParser from "../src/tokenparser.js";
-import TokenType from "@streamparser/json/utils/types/tokenType.js";
+} from "./utils/testRunner";
 
 describe("separator", () => {
   const testData: TestData[] = [
@@ -35,7 +35,7 @@ describe("separator", () => {
         ({ value }) => {
           expect(value).toEqual(expected[i]);
           i += 1;
-        },
+        }
       );
     });
   });
@@ -45,7 +45,7 @@ describe("separator", () => {
       await runJSONParserTest(new JSONParser({ separator: "abc" }), ["abe"]);
     } catch (err: any) {
       expect(err.message).toEqual(
-        'Unexpected "e" at position "2" in state SEPARATOR',
+        'Unexpected "e" at position "2" in state SEPARATOR'
       );
     }
   });
@@ -71,7 +71,7 @@ describe("separator", () => {
       fail("Error expected on invalid selector");
     } catch (err: any) {
       expect(err.message).toEqual(
-        'Unexpected SEPARATOR ("\\r\\n") in state SEPARATOR',
+        'Unexpected SEPARATOR ("\\r\\n") in state SEPARATOR'
       );
     }
   });

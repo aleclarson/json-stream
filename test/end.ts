@@ -1,5 +1,5 @@
-import { runJSONParserTest } from "./utils/testRunner.js";
-import JSONParser from "../src/jsonparser.js";
+import JSONParser from "../src/jsonparser";
+import { runJSONParserTest } from "./utils/testRunner";
 
 describe("end", () => {
   test("should fail if writing after ending", async () => {
@@ -45,7 +45,7 @@ describe("end", () => {
       const p = new JSONParser({ separator: "" });
 
       await runJSONParserTest(p, [numberValue], ({ value }) =>
-        expect(value).toEqual(JSON.parse(numberValue)),
+        expect(value).toEqual(JSON.parse(numberValue))
       );
     });
   });

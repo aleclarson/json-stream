@@ -1,12 +1,12 @@
-import JSONParser from "../src/jsonparser.js";
-import { runJSONParserTest } from "./utils/testRunner.js";
+import JSONParser from "../src/jsonparser";
+import { runJSONParserTest } from "./utils/testRunner";
 
 describe("BOM", () => {
   test("should support UTF-8 BOM", () => {
     runJSONParserTest(
       new JSONParser(),
       new Uint8Array([0xef, 0xbb, 0xbf, 0x31]),
-      ({ value }) => expect(value).toBe(1),
+      ({ value }) => expect(value).toBe(1)
     );
   });
 
@@ -14,7 +14,7 @@ describe("BOM", () => {
     runJSONParserTest(
       new JSONParser(),
       new Uint16Array([0xfeff, 0x3131]),
-      ({ value }) => expect(value).toBe(11),
+      ({ value }) => expect(value).toBe(11)
     );
   });
 
@@ -22,7 +22,7 @@ describe("BOM", () => {
     runJSONParserTest(
       new JSONParser(),
       new Uint16Array([0xfffe, 0x3131]),
-      ({ value }) => expect(value).toBe(11),
+      ({ value }) => expect(value).toBe(11)
     );
   });
 

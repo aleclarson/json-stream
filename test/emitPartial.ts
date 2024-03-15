@@ -1,11 +1,11 @@
-import TokenType from "@streamparser/json/utils/types/tokenType.js";
-import JSONParser from "../src/jsonparser.js";
-import Tokenizer from "../src/tokenizer.js";
+import TokenType from "../src/core/utils/types/tokenType";
+import JSONParser from "../src/jsonparser";
+import Tokenizer from "../src/tokenizer";
 import {
   TestData,
   runJSONParserTest,
   runTokenizerTest,
-} from "./utils/testRunner.js";
+} from "./utils/testRunner";
 
 describe("Emit Partial", () => {
   describe("Tokenizer emit partial tokens", () => {
@@ -346,7 +346,7 @@ describe("Emit Partial", () => {
             expect(value).toEqual(expectedData.value);
             expect(partial ?? false).toEqual(expectedData.partial);
             i += 1;
-          },
+          }
         );
         expect(i).toEqual(expected.length);
       });
@@ -612,7 +612,7 @@ describe("Emit Partial", () => {
             expect(parent).toEqual(expectedData.parent);
             expect(partial ?? false).toEqual(expectedData.partial);
             i += 1;
-          },
+          }
         );
         expect(i).toEqual(expected.length);
       });
@@ -640,7 +640,7 @@ describe("Emit Partial", () => {
         expect(parent).toEqual(expectedData.parent);
         expect(partial ?? false).toEqual(expectedData.partial);
         i += 1;
-      },
+      }
     );
     expect(i).toEqual(expected.length);
   });

@@ -1,6 +1,6 @@
-import { runTokenizerTest } from "./utils/testRunner.js";
-import { Tokenizer } from "../src/index.js";
-import TokenType from "@streamparser/json/utils/types/tokenType.js";
+import TokenType from "../src/core/utils/types/tokenType";
+import { Tokenizer } from "../src/index";
+import { runTokenizerTest } from "./utils/testRunner";
 
 const input1 = '{\n  "string": "value",\n  "number": 3,\n  "object"';
 const input2 = ': {\n  "key": "vд"\n  },\n  "array": [\n  -1,\n  12\n  ]\n  ';
@@ -59,6 +59,6 @@ test("offset", async () => {
       expect(offset).toEqual(offsets[i][0]);
       expect(token).toEqual(offsets[i][1]);
       i += 1;
-    },
+    }
   );
 });

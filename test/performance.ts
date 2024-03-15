@@ -2,9 +2,9 @@
 test("", () => {
   /* Do nothing */
 });
-// import { runJSONParserTest } from "./utils/testRunner.js";
-// import JSONParser from "../src/jsonparser.js";
-// import { charset } from "@streamparser/json/utils/utf-8.js";
+// import { runJSONParserTest } from "./utils/testRunner";
+// import JSONParser from "../src/jsonparser";
+// import { charset } from "../src/core/utils/utf-8";
 
 // const quote = String.fromCharCode(charset.QUOTATION_MARK);
 

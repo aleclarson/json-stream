@@ -1,6 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": [
-    "src/**/*.ts"
-  ],
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  }
 }

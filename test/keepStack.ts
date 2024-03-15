@@ -1,5 +1,5 @@
-import JSONParser from "../src/jsonparser.js";
-import { runJSONParserTest } from "./utils/testRunner.js";
+import JSONParser from "../src/jsonparser";
+import { runJSONParserTest } from "./utils/testRunner";
 
 describe("keepStack", () => {
   const testData = [
@@ -34,7 +34,7 @@ describe("keepStack", () => {
         ({ parent }) => {
           if (parent === undefined) return;
           expect(Object.keys(parent).length).toEqual(0);
-        },
+        }
       );
     });
   });

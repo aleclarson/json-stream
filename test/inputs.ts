@@ -1,6 +1,6 @@
-import { runJSONParserTest, type TestData } from "./utils/testRunner.js";
-import JSONParser from "../src/jsonparser.js";
-import { charset } from "@streamparser/json/utils/utf-8.js";
+import { charset } from "../src/core/utils/utf-8";
+import JSONParser from "../src/jsonparser";
+import { runJSONParserTest, type TestData } from "./utils/testRunner";
 
 const quote = String.fromCharCode(charset.QUOTATION_MARK);
 
@@ -33,7 +33,7 @@ describe("inputs", () => {
       await runJSONParserTest(
         new JSONParser(),
         [quote, value, quote],
-        ({ value }) => expect(value).toEqual(expected),
+        ({ value }) => expect(value).toEqual(expected)
       );
     });
   });
@@ -43,7 +43,7 @@ describe("inputs", () => {
       await runJSONParserTest(
         new JSONParser(),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        [745674 as any],
+        [745674 as any]
       );
       fail("Expected to fail!");
     } catch (e) {

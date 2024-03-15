@@ -1,7 +1,6 @@
-import { TokenParser, type TokenParserOptions } from "@streamparser/json";
-import type { ParsedTokenInfo } from "@streamparser/json/utils/types/parsedTokenInfo.js";
-import type { ParsedElementInfo } from "@streamparser/json/utils/types/parsedElementInfo.js";
-import { cloneParsedElementInfo } from "./utils.js";
+import { TokenParser, type TokenParserOptions } from "./core";
+import type { ParsedElementInfo, ParsedTokenInfo } from "./types";
+import { cloneParsedElementInfo } from "./utils";
 
 class TokenParserTransformer
   extends TokenParser
@@ -38,7 +37,7 @@ export default class TokenParserTransformStream extends TransformStream<
   constructor(
     opts: TokenParserOptions,
     writableStrategy?: QueuingStrategy,
-    readableStrategy?: QueuingStrategy,
+    readableStrategy?: QueuingStrategy
   ) {
     const transformer = new TokenParserTransformer(opts);
     super(transformer, writableStrategy, readableStrategy);

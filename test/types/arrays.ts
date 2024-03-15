@@ -1,5 +1,5 @@
-import { runJSONParserTest, type TestData } from "../utils/testRunner.js";
-import JSONParser from "../../src/jsonparser.js";
+import JSONParser from "../../src/jsonparser";
+import { runJSONParserTest, type TestData } from "../utils/testRunner";
 
 describe("arrays", () => {
   const testData: TestData[] = [
@@ -71,7 +71,7 @@ describe("arrays", () => {
 
           expect([keys, value]).toEqual(expected[i]);
           i += 1;
-        },
+        }
       );
     });
 
@@ -89,7 +89,7 @@ describe("arrays", () => {
 
           expect([keys, value]).toEqual(expected[i]);
           i += 1;
-        },
+        }
       );
     });
   });

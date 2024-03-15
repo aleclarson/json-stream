@@ -1,7 +1,7 @@
-import type { ParsedElementInfo } from "@streamparser/json/utils/types/parsedElementInfo.js";
+import type { ParsedElementInfo } from "./types";
 
 export function cloneParsedElementInfo(
-  parsedElementInfo: ParsedElementInfo,
+  parsedElementInfo: ParsedElementInfo
 ): ParsedElementInfo {
   const { value, key, parent, stack, partial } = parsedElementInfo;
   return { value, key, parent: clone(parent), stack: clone(stack), partial };
