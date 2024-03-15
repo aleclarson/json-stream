@@ -1,7 +1,7 @@
 import { JSONParser, JSONParserOptions } from "./core";
 import { JsonStruct } from "./types";
 
-export class ObjectParser<T extends JsonStruct>
+export class ObjectParserTransformer<T extends JsonStruct>
   extends JSONParser
   implements Transformer<Iterable<number> | string, T>
 {
@@ -25,5 +25,18 @@ export class ObjectParser<T extends JsonStruct>
 
   flush() {
     this.end();
+  }
+}
+
+export default class ObjectParserTransformStream<
+  T extends JsonStruct,
+> extends TransformStream<Iterable<number> | string, T> {
+  constructor(
+    opts?: JSONParserOptions,
+    writableStrategy?: QueuingStrategy,
+    readableStrategy?: QueuingStrategy
+  ) {
+    const transformer = new ObjectParserTransformer(opts);
+    super(transformer, writableStrategy, readableStrategy);
   }
 }
