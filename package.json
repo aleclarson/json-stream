@@ -1,0 +1,28 @@
+{
+  "name": "@aleclarson/json-stream",
+  "description": "Streaming JSON parser in Javascript for Node.js, Deno and the browser",
+  "version": "0.1.20",
+  "main": "./dist/index.js",
+  "author": "Juanjo Diaz <juanjo.diazmo@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aleclarson/json-stream.git"
+  },
+  "scripts": {
+    "lint": "eslint src test --ext .js,.ts,.json",
+    "format": "npm run lint -- --fix",
+    "build": "tsup",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build",
+    "test": "node test/CommonJS.cjs && jest test",
+    "test-with-coverage": "npm test -- --coverage"
+  },
+  "license": "MIT",
+  "tags": [
+    "json",
+    "stream"
+  ],
+  "devDependencies": {
+    "@streamparser/json": "^0.0.20"
+  }
+}
